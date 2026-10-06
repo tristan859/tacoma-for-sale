@@ -8,336 +8,656 @@
   <meta property="og:title" content="2018 Toyota Tacoma TRD Off-Road — Cement · $21,500">
   <meta property="og:description" content="TRD Off-Road Double Cab, Black Package, 165k miles. Bilstein shocks, locking rear diff, leather, sunroof. San Diego / El Cajon area.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="photos/tacoma-16.jpg">
+  <meta property="og:image" content="photos/tacoma-01.jpg">
   <style>
     :root {
-      --text: #1c1c1c;
-      --muted: #666;
-      --line: #e8e8e8;
-      --bg: #fafafa;
-      --card: #fff;
-      --accent: #c45c26;
-      --max: 680px;
-      --wide: 900px;
+      --text: #1a1a1a;
+      --muted: #5c5c5c;
+      --line: #e5e5e5;
+      --line-strong: #d0d0d0;
+      --bg: #f5f5f5;
+      --card: #ffffff;
+      --accent: #1a56db;
+      --accent-hover: #1347b8;
+      --chip-bg: #f0f2f5;
+      --max: 1120px;
+      --radius: 8px;
+      --shadow: 0 1px 3px rgba(0,0,0,.08);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: var(--text);
       background: var(--bg);
-      line-height: 1.6;
-      font-size: 1.05rem;
-      text-align: center;
+      line-height: 1.55;
+      font-size: 1rem;
       -webkit-font-smoothing: antialiased;
     }
     img { max-width: 100%; display: block; }
     a { color: var(--accent); }
-    .wrap { width: min(100% - 2rem, var(--max)); margin-inline: auto; }
-    .wrap-wide { width: min(100% - 2rem, var(--wide)); margin-inline: auto; }
+    button { font-family: inherit; }
 
-    header.hero {
+    .page {
+      width: min(100% - 2rem, var(--max));
+      margin-inline: auto;
+      padding: 1.25rem 0 0;
+    }
+
+    /* —— Top listing row: gallery + price rail —— */
+    .listing-top {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      align-items: start;
+    }
+    @media (min-width: 900px) {
+      .listing-top {
+        grid-template-columns: minmax(0, 1.65fr) minmax(280px, 0.85fr);
+        gap: 1.5rem;
+      }
+    }
+
+    /* Gallery / carousel */
+    .photo-stage {
+      position: relative;
+      background: #111;
+    }
+    .gallery-panel {
       background: var(--card);
-      padding: 2rem 0 2.5rem;
-      border-bottom: 1px solid var(--line);
-    }
-    .hero-photo {
-      width: min(100% - 2rem, var(--wide));
-      margin: 0 auto 1.75rem;
-      border-radius: 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
       overflow: hidden;
-      background: #eee;
-      cursor: pointer;
-      box-shadow: 0 8px 28px rgba(0,0,0,.08);
+      box-shadow: var(--shadow);
     }
-    .hero-photo img {
+    .main-photo {
+      position: relative;
+      background: #111;
+      cursor: pointer;
+      border: 0;
+      width: 100%;
+      padding: 0;
+      display: block;
+    }
+    .main-photo img {
       width: 100%;
       aspect-ratio: 16 / 10;
       object-fit: cover;
       object-position: center;
     }
-    .price {
-      font-size: clamp(2rem, 5vw, 2.6rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      color: var(--accent);
-      margin-bottom: .35rem;
+    .main-photo:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
     }
-    h1 {
-      font-size: clamp(1.25rem, 3.2vw, 1.65rem);
-      font-weight: 650;
-      letter-spacing: -0.02em;
-      line-height: 1.3;
-      margin-bottom: .5rem;
-    }
-    .sub {
-      color: var(--muted);
-      font-size: .98rem;
-    }
-
-    section { padding: 2.25rem 0; }
-    section + section { border-top: 1px solid var(--line); }
-    h2 {
-      font-size: .8rem;
-      font-weight: 650;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1.1rem;
-    }
-    .about {
-      text-align: center;
-    }
-    .about .about-copy {
-      max-width: 36em;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .about p {
-      margin: 0 auto 1rem;
-      max-width: 36em;
-      text-align: center;
-    }
-    .about p:last-child { margin-bottom: 0; }
-
-    .specs {
-      display: grid;
-      gap: .65rem;
-      max-width: 28rem;
-      margin: 0 auto;
-      text-align: left;
-    }
-    .specs div {
-      display: grid;
-      grid-template-columns: 8.5rem 1fr;
-      gap: .75rem;
-      padding: .7rem .9rem;
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      font-size: .95rem;
-    }
-    .specs .label { color: var(--muted); font-size: .85rem; }
-    .specs .value { font-weight: 550; }
-
-    .highlights {
-      list-style: none;
-      max-width: 28rem;
-      margin: 0 auto;
-      text-align: left;
-    }
-    .highlights li {
-      position: relative;
-      padding: .55rem 0 .55rem 1.4rem;
-      border-bottom: 1px solid var(--line);
-    }
-    .highlights li:last-child { border-bottom: 0; }
-    .highlights li::before {
-      content: "";
+    .photo-count {
       position: absolute;
-      left: 0;
-      top: 1rem;
-      width: .55rem;
-      height: .55rem;
+      right: .75rem;
+      bottom: .75rem;
+      background: rgba(0,0,0,.72);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .35rem .65rem;
+      border-radius: 4px;
+      pointer-events: none;
+    }
+    .carousel-nav {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 2.5rem;
+      height: 2.5rem;
       border-radius: 50%;
-      background: var(--accent);
-    }
-
-    .gallery { background: var(--card); }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: .55rem;
-    }
-    @media (max-width: 640px) {
-      .grid { grid-template-columns: repeat(2, 1fr); }
-      .specs div { grid-template-columns: 1fr; gap: .15rem; text-align: center; }
-      .highlights { text-align: center; }
-      .highlights li { padding-left: 0; }
-      .highlights li::before { display: none; }
-    }
-    .grid button {
       border: 0;
+      background: rgba(255,255,255,.92);
+      color: var(--text);
+      font-size: 1.35rem;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .carousel-nav:hover { background: #fff; }
+    .carousel-nav:focus-visible { outline: 3px solid var(--accent); }
+    .carousel-prev { left: .65rem; }
+    .carousel-next { right: .65rem; }
+
+    .thumbs {
+      display: flex;
+      gap: .4rem;
+      padding: .65rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      background: var(--card);
+    }
+    .thumbs button {
+      flex: 0 0 auto;
+      width: 72px;
+      height: 54px;
       padding: 0;
-      background: #eee;
-      border-radius: 6px;
+      border: 2px solid transparent;
+      border-radius: 4px;
       overflow: hidden;
       cursor: pointer;
-      aspect-ratio: 1;
+      background: #eee;
+      scroll-snap-align: start;
     }
-    .grid img {
+    .thumbs button.active,
+    .thumbs button:focus-visible {
+      border-color: var(--accent);
+      outline: none;
+    }
+    .thumbs img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .contact p { max-width: 28em; margin: 0 auto 1rem; color: var(--muted); }
-    .seller { font-weight: 600; color: var(--text); }
-
-    footer {
-      padding: 1.5rem 0 2.5rem;
+    /* Sticky price rail */
+    .price-rail {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.35rem 1.4rem 1.5rem;
+      box-shadow: var(--shadow);
+      text-align: left;
+    }
+    @media (min-width: 900px) {
+      .price-rail {
+        position: sticky;
+        top: 1rem;
+      }
+    }
+    .price-rail .price {
+      font-size: clamp(1.85rem, 4vw, 2.35rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: .55rem;
+      color: var(--text);
+    }
+    .price-rail h1 {
+      font-size: clamp(1.15rem, 2.4vw, 1.35rem);
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      margin-bottom: .45rem;
+    }
+    .price-rail .meta {
       color: var(--muted);
+      font-size: .95rem;
+      margin-bottom: 1rem;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+      margin-bottom: 1.25rem;
+    }
+    .chip {
+      display: inline-block;
+      background: var(--chip-bg);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: .3rem .7rem;
+      font-size: .8rem;
+      font-weight: 550;
+      color: var(--text);
+    }
+    .cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 650;
+      font-size: 1.05rem;
+      padding: .85rem 1.25rem;
+      border-radius: 6px;
+      border: 0;
+      cursor: pointer;
+      min-height: 48px;
+      line-height: 1.3;
+    }
+    .cta:hover { background: var(--accent-hover); }
+    .cta:focus-visible { outline: 3px solid #93b4ff; outline-offset: 2px; }
+    .cta-note {
+      margin-top: .75rem;
       font-size: .85rem;
-      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-align: center;
     }
 
+    /* Sections */
+    section.block {
+      margin-top: 1.75rem;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.75rem 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    .block h2 {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    /* Overview — centered per listing feedback */
+    .overview {
+      text-align: center;
+    }
+    .overview h2 { text-align: center; }
+    .overview .about-copy {
+      max-width: 38em;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .overview p {
+      max-width: 38em;
+      margin: 0 auto 1rem;
+      color: var(--text);
+      font-size: 1.05rem;
+      text-align: center;
+    }
+    .overview p:last-child { margin-bottom: 0; }
+
+    /* Specs grid */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      text-align: left;
+    }
+    @media (min-width: 640px) {
+      .specs-grid { grid-template-columns: 1fr 1fr; column-gap: 1.5rem; }
+    }
+    .spec-row {
+      display: grid;
+      grid-template-columns: 9rem 1fr;
+      gap: .75rem;
+      padding: .8rem 0;
+      border-bottom: 1px solid var(--line);
+      font-size: .95rem;
+      text-align: left;
+    }
+    .spec-row:last-child { border-bottom: 0; }
+    @media (min-width: 640px) {
+      .specs-grid .spec-row:nth-last-child(2):nth-child(odd) { border-bottom: 0; }
+    }
+    .spec-label { color: var(--muted); font-size: .88rem; }
+    .spec-value { font-weight: 550; }
+
+    /* Features */
+    .features {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: .15rem .75rem;
+      text-align: left;
+    }
+    @media (min-width: 640px) {
+      .features { grid-template-columns: 1fr 1fr; }
+    }
+    .features li {
+      position: relative;
+      padding: .55rem 0 .55rem 1.35rem;
+      border-bottom: 1px solid var(--line);
+      font-size: .95rem;
+    }
+    .features li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 1.05rem;
+      width: .5rem;
+      height: .5rem;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* Full photo grid */
+    .photo-grid-section .block-inner { padding: 0; }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: .5rem;
+    }
+    @media (min-width: 640px) {
+      .photo-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (min-width: 900px) {
+      .photo-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .photo-grid button {
+      border: 0;
+      padding: 0;
+      background: #e8e8e8;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 4 / 3;
+    }
+    .photo-grid button:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .photo-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .2s ease;
+    }
+    .photo-grid button:hover img { transform: scale(1.03); }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+    }
+    .contact p {
+      max-width: 32em;
+      margin: 0 auto 1rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+    .seller {
+      font-weight: 650;
+      color: var(--text);
+      font-size: 1.1rem;
+    }
+
+    footer {
+      padding: 1.75rem 0 2.5rem;
+      color: var(--muted);
+      font-size: .85rem;
+      text-align: center;
+    }
+
+    /* Lightbox */
     .lb {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,.92);
-      z-index: 50;
+      background: rgba(0,0,0,.93);
+      z-index: 100;
       align-items: center;
       justify-content: center;
       padding: 1rem;
     }
     .lb.open { display: flex; }
-    .lb img { max-height: 90vh; max-width: 94vw; border-radius: 4px; }
+    .lb img {
+      max-height: 88vh;
+      max-width: min(94vw, 1200px);
+      border-radius: 4px;
+      object-fit: contain;
+    }
     .lb-close, .lb-prev, .lb-next {
       position: absolute;
-      background: transparent;
+      background: rgba(255,255,255,.12);
       border: 0;
       color: #fff;
-      font-size: 2rem;
       cursor: pointer;
       line-height: 1;
-      padding: .5rem;
+      border-radius: 6px;
+      min-width: 44px;
+      min-height: 44px;
     }
-    .lb-close { top: .75rem; right: 1rem; }
-    .lb-prev { left: .5rem; }
-    .lb-next { right: .5rem; }
+    .lb-close:hover, .lb-prev:hover, .lb-next:hover {
+      background: rgba(255,255,255,.22);
+    }
+    .lb-close { top: .75rem; right: .75rem; font-size: 1.75rem; }
+    .lb-prev { left: .75rem; top: 50%; transform: translateY(-50%); font-size: 2rem; }
+    .lb-next { right: .75rem; top: 50%; transform: translateY(-50%); font-size: 2rem; }
+    .lb-counter {
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,.85);
+      font-size: .9rem;
+      font-weight: 550;
+    }
   </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="hero-photo" id="heroOpen" role="button" tabindex="0" aria-label="Open hero photo">
-      <img src="photos/tacoma-16.jpg" alt="2018 Toyota Tacoma TRD Off-Road in Cement — side profile" width="1600" height="1200">
-    </div>
-    <div class="wrap">
-      <div class="price">$21,500</div>
-      <h1>2018 Toyota Tacoma TRD Off-Road Double Cab</h1>
-      <p class="sub">Cement · Black Package · 165,000 miles · San Diego / El Cajon</p>
-    </div>
-  </header>
+  <div class="page">
+    <div class="listing-top">
+      <!-- Photo carousel (primary visual weight) -->
+      <div class="gallery-panel">
+        <div class="photo-stage">
+          <button type="button" class="main-photo" id="mainPhotoBtn" aria-label="Open larger photo">
+            <img id="mainImg" src="photos/tacoma-01.jpg" alt="2018 Toyota Tacoma TRD Off-Road in Cement — front three-quarter view" width="1600" height="1000">
+            <span class="photo-count" id="photoCount">1 / 31</span>
+          </button>
+          <button type="button" class="carousel-nav carousel-prev" id="carPrev" aria-label="Previous photo">&#8249;</button>
+          <button type="button" class="carousel-nav carousel-next" id="carNext" aria-label="Next photo">&#8250;</button>
+        </div>
+        <div class="thumbs" id="thumbs" role="listbox" aria-label="Photo thumbnails"></div>
+      </div>
 
-  <main>
-    <section class="wrap-wide about" aria-labelledby="about-h">
-      <h2 id="about-h">About this truck</h2>
+      <!-- Sticky price rail -->
+      <aside class="price-rail" aria-label="Price and summary">
+        <div class="price">$21,500</div>
+        <h1>2018 Toyota Tacoma TRD Off-Road Double Cab</h1>
+        <p class="meta">165,000 miles · San Diego / El Cajon, CA</p>
+        <div class="chips" aria-label="Key details">
+          <span class="chip">TRD Off-Road</span>
+          <span class="chip">Cement</span>
+          <span class="chip">4x2</span>
+          <span class="chip">Automatic</span>
+          <span class="chip">Black Package</span>
+        </div>
+        <a class="cta" href="#contact">Contact</a>
+        <p class="cta-note">Private sale · Schedule a viewing</p>
+      </aside>
+    </div>
+
+    <!-- Overview — centered -->
+    <section class="block overview" aria-labelledby="overview-h">
+      <h2 id="overview-h">About this truck</h2>
       <div class="about-copy">
-        <p>Clean 2018 Tacoma TRD Off-Road Double Cab in Cement with the Black Package. Rear-wheel-drive 4x2 with the 3.5L V6 and 6-speed automatic.</p>
-        <p>TRD Off-Road setup with Bilstein shocks, an electronic locking rear differential, and all-terrain tires. Toyota Safety Sense P is on board. Black leather, sunroof, lined bed, and side steps.</p>
-        <p>Well cared for with no major body damage in the photos. Solid daily driver and lifestyle truck.</p>
+      <p>Clean 2018 Tacoma TRD Off-Road Double Cab in Cement with the Black Package. Rear-wheel-drive 4x2 with the 3.5L V6 (~278 hp) and 6-speed automatic — 165,000 miles.</p>
+      <p>This is the TRD Off-Road setup buyers look for: Bilstein shocks, an electronic locking rear differential, and all-terrain tires on TRD wheels. Toyota Safety Sense P is on board (pre-collision with pedestrian detection, lane departure alert, dynamic radar cruise, and automatic high beams). Note: this is a <strong>4x2</strong> — it does not include Crawl Control or Multi-Terrain Select.</p>
+      <p>Inside: black leather and a sunroof. Outside: Black Package accents, fog lights, chrome side steps, and a lined short bed. Factory tow rating is about 6,400 lb. Short-bed Double Cab on a Toyota of El Cajon dealer frame.</p>
+      <p>Well cared for with no major body damage in the photos. Solid daily driver and lifestyle truck.</p>
+          </div>
+    </section>
+
+    <!-- Specs -->
+    <section class="block" aria-labelledby="specs-h">
+      <h2 id="specs-h">Vehicle details</h2>
+      <div class="specs-grid">
+        <div class="spec-row"><span class="spec-label">Year / trim</span><span class="spec-value">2018 TRD Off-Road</span></div>
+        <div class="spec-row"><span class="spec-label">Body</span><span class="spec-value">Double Cab · short bed</span></div>
+        <div class="spec-row"><span class="spec-label">Drivetrain</span><span class="spec-value">4x2 (RWD)</span></div>
+        <div class="spec-row"><span class="spec-label">Engine</span><span class="spec-value">3.5L V6 · ~278 hp</span></div>
+        <div class="spec-row"><span class="spec-label">Transmission</span><span class="spec-value">6-speed automatic</span></div>
+        <div class="spec-row"><span class="spec-label">Exterior</span><span class="spec-value">Cement · Black Package</span></div>
+        <div class="spec-row"><span class="spec-label">Interior</span><span class="spec-value">Black leather</span></div>
+        <div class="spec-row"><span class="spec-label">Mileage</span><span class="spec-value">165,000</span></div>
+        <div class="spec-row"><span class="spec-label">Tow rating</span><span class="spec-value">~6,400 lb (factory)</span></div>
+        <div class="spec-row"><span class="spec-label">Location</span><span class="spec-value">San Diego / El Cajon, CA</span></div>
       </div>
     </section>
 
-    <section class="wrap" aria-labelledby="specs-h">
-      <h2 id="specs-h">Specs</h2>
-      <div class="specs">
-        <div><span class="label">Year / trim</span><span class="value">2018 TRD Off-Road</span></div>
-        <div><span class="label">Drivetrain</span><span class="value">4x2 · 3.5L V6 · 6-speed auto</span></div>
-        <div><span class="label">Body</span><span class="value">Double Cab · short bed</span></div>
-        <div><span class="label">Color</span><span class="value">Cement · Black Package</span></div>
-        <div><span class="label">Mileage</span><span class="value">165,000</span></div>
-        <div><span class="label">Location</span><span class="value">San Diego / El Cajon, CA</span></div>
-      </div>
-    </section>
-
-    <section class="wrap" aria-labelledby="hl-h">
-      <h2 id="hl-h">Highlights</h2>
-      <ul class="highlights">
-        <li>Bilstein shocks &amp; locking rear differential</li>
+    <!-- Features -->
+    <section class="block" aria-labelledby="feat-h">
+      <h2 id="feat-h">Features &amp; equipment</h2>
+      <ul class="features">
+        <li>Bilstein shocks</li>
+        <li>Electronic locking rear differential</li>
         <li>All-terrain tires on TRD wheels</li>
         <li>Toyota Safety Sense P</li>
-        <li>Black leather interior &amp; sunroof</li>
-        <li>Bed liner, side steps, fog lights</li>
-        <li>Cement exterior with Black Package</li>
+        <li>Pre-collision with pedestrian detection</li>
+        <li>Lane departure alert</li>
+        <li>Dynamic radar cruise control</li>
+        <li>Automatic high beams</li>
+        <li>Black leather interior</li>
+        <li>Sunroof</li>
+        <li>Lined bed</li>
+        <li>Chrome side steps</li>
+        <li>Fog lights</li>
+        <li>Black Package exterior accents</li>
       </ul>
     </section>
 
-    <section class="gallery" aria-label="Photo gallery">
-      <div class="wrap-wide">
-        <h2>Photos</h2>
-        <div class="grid" id="gallery"></div>
-      </div>
+    <!-- Full gallery of remaining photos -->
+    <section class="block" aria-label="All photos">
+      <h2>Photos</h2>
+      <div class="photo-grid" id="photoGrid"></div>
     </section>
 
-    <section class="wrap contact" id="contact">
-      <h2>Contact</h2>
-      <p>Serious inquiries welcome. Reach out through this listing to schedule a viewing in the San Diego / El Cajon area.</p>
+    <!-- Contact — soft CTA only -->
+    <section class="block contact" id="contact" aria-labelledby="contact-h">
+      <h2 id="contact-h">Contact</h2>
+      <p>Serious inquiries welcome. Reach out through this listing to schedule a viewing and walkaround in the San Diego / El Cajon area.</p>
       <p class="seller">Tristan Olson</p>
     </section>
-  </main>
+  </div>
 
   <footer>
-    <div class="wrap">Private sale · San Diego / El Cajon area, CA</div>
+    <div>Private sale · San Diego / El Cajon area, CA</div>
   </footer>
 
-  <div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
     <button type="button" class="lb-close" id="lbClose" aria-label="Close">&times;</button>
     <button type="button" class="lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
     <img id="lbImg" src="" alt="">
     <button type="button" class="lb-next" id="lbNext" aria-label="Next">&#8250;</button>
+    <div class="lb-counter" id="lbCounter"></div>
   </div>
 
   <script>
     (function () {
-      // Hero is tacoma-16; gallery = all other unique photos (30)
-      var all = [];
-      for (var i = 1; i <= 31; i++) {
+      var HERO = 1; // tacoma-01 — landscape front 3/4
+      var TOTAL = 31;
+      var photos = [];
+      for (var i = 1; i <= TOTAL; i++) {
         var n = (i < 10 ? "0" : "") + i;
-        all.push({ num: i, src: "photos/tacoma-" + n + ".jpg", alt: "2018 Toyota Tacoma TRD Off-Road — photo " + i });
+        photos.push({
+          num: i,
+          src: "photos/tacoma-" + n + ".jpg",
+          alt: "2018 Toyota Tacoma TRD Off-Road — photo " + i
+        });
       }
-      var heroSrc = "photos/tacoma-16.jpg";
-      var photos = all.filter(function (p) { return p.src !== heroSrc; });
-      photos.unshift(all.find(function (p) { return p.src === heroSrc; }));
+      // Lightbox / carousel order: hero first, then remaining in numeric order
+      var ordered = photos.filter(function (p) { return p.num === HERO; })
+        .concat(photos.filter(function (p) { return p.num !== HERO; }));
 
-      var gallery = document.getElementById("gallery");
-      photos.slice(1).forEach(function (p, idx) {
+      var cur = 0;
+      var mainImg = document.getElementById("mainImg");
+      var photoCount = document.getElementById("photoCount");
+      var thumbs = document.getElementById("thumbs");
+      var photoGrid = document.getElementById("photoGrid");
+      var lb = document.getElementById("lightbox");
+      var lbImg = document.getElementById("lbImg");
+      var lbCounter = document.getElementById("lbCounter");
+
+      function setMain(i) {
+        cur = i;
+        mainImg.src = ordered[i].src;
+        mainImg.alt = ordered[i].alt;
+        photoCount.textContent = (i + 1) + " / " + TOTAL;
+        var buttons = thumbs.querySelectorAll("button");
+        for (var b = 0; b < buttons.length; b++) {
+          buttons[b].classList.toggle("active", b === i);
+          buttons[b].setAttribute("aria-selected", b === i ? "true" : "false");
+        }
+        if (buttons[i]) {
+          buttons[i].scrollIntoView({ inline: "nearest", block: "nearest", behavior: "smooth" });
+        }
+      }
+
+      // Thumbnail strip — all photos
+      ordered.forEach(function (p, idx) {
         var btn = document.createElement("button");
         btn.type = "button";
-        btn.setAttribute("aria-label", "Open photo " + (idx + 1));
+        btn.setAttribute("role", "option");
+        btn.setAttribute("aria-label", "Show photo " + (idx + 1));
+        btn.setAttribute("aria-selected", idx === 0 ? "true" : "false");
+        if (idx === 0) btn.classList.add("active");
+        var img = document.createElement("img");
+        img.src = p.src;
+        img.alt = "";
+        img.loading = idx < 8 ? "eager" : "lazy";
+        img.width = 144;
+        img.height = 108;
+        btn.appendChild(img);
+        btn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          setMain(idx);
+        });
+        thumbs.appendChild(btn);
+      });
+
+      // Lower gallery grid — exclude hero (30 photos)
+      ordered.slice(1).forEach(function (p, idx) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.setAttribute("aria-label", "Open photo " + (idx + 2));
         var img = document.createElement("img");
         img.src = p.src;
         img.alt = p.alt;
         img.loading = "lazy";
         img.width = 800;
-        img.height = 800;
+        img.height = 600;
         btn.appendChild(img);
         btn.addEventListener("click", function () { openLb(idx + 1); });
-        gallery.appendChild(btn);
+        photoGrid.appendChild(btn);
       });
-
-      var lb = document.getElementById("lightbox");
-      var lbImg = document.getElementById("lbImg");
-      var cur = 0;
 
       function openLb(i) {
         cur = i;
-        lbImg.src = photos[cur].src;
-        lbImg.alt = photos[cur].alt;
+        lbImg.src = ordered[cur].src;
+        lbImg.alt = ordered[cur].alt;
+        lbCounter.textContent = (cur + 1) + " / " + TOTAL;
+        lb.hidden = false;
         lb.classList.add("open");
         document.body.style.overflow = "hidden";
+        document.getElementById("lbClose").focus();
       }
       function closeLb() {
         lb.classList.remove("open");
+        lb.hidden = true;
         document.body.style.overflow = "";
         lbImg.src = "";
       }
       function step(d) {
-        cur = (cur + d + photos.length) % photos.length;
-        lbImg.src = photos[cur].src;
-        lbImg.alt = photos[cur].alt;
+        cur = (cur + d + TOTAL) % TOTAL;
+        if (lb.classList.contains("open")) {
+          lbImg.src = ordered[cur].src;
+          lbImg.alt = ordered[cur].alt;
+          lbCounter.textContent = (cur + 1) + " / " + TOTAL;
+        }
+        setMain(cur);
       }
 
-      document.getElementById("heroOpen").addEventListener("click", function () { openLb(0); });
-      document.getElementById("heroOpen").addEventListener("keydown", function (e) {
-        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openLb(0); }
+      document.getElementById("mainPhotoBtn").addEventListener("click", function () { openLb(cur); });
+      document.getElementById("carPrev").addEventListener("click", function (e) {
+        e.stopPropagation();
+        step(-1);
+      });
+      document.getElementById("carNext").addEventListener("click", function (e) {
+        e.stopPropagation();
+        step(1);
       });
       document.getElementById("lbClose").addEventListener("click", closeLb);
       document.getElementById("lbPrev").addEventListener("click", function () { step(-1); });
       document.getElementById("lbNext").addEventListener("click", function () { step(1); });
       lb.addEventListener("click", function (e) { if (e.target === lb) closeLb(); });
       document.addEventListener("keydown", function (e) {
-        if (!lb.classList.contains("open")) return;
+        if (!lb.classList.contains("open")) {
+          // Arrow keys on page when focused in thumbs area still work via buttons
+          return;
+        }
         if (e.key === "Escape") closeLb();
         if (e.key === "ArrowLeft") step(-1);
         if (e.key === "ArrowRight") step(1);
