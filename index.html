@@ -259,6 +259,7 @@
     .overview .about-copy {
       max-width: 38em;
       margin: 0 auto;
+      margin-inline: auto;
       text-align: center;
     }
     .overview p {
@@ -269,6 +270,46 @@
       text-align: center;
     }
     .overview p:last-child { margin-bottom: 0; }
+
+    /* Condition & transparency (CARFAX-inspired honesty, no report claims) */
+    .trust {
+      text-align: center;
+    }
+    .trust h2 { text-align: center; }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: .75rem;
+      max-width: 40em;
+      margin: 0 auto 1.1rem;
+      text-align: left;
+    }
+    @media (min-width: 640px) {
+      .trust-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .trust-item {
+      background: var(--chip-bg);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: .85rem 1rem;
+      font-size: .92rem;
+    }
+    .trust-item strong {
+      display: block;
+      font-size: .8rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: .25rem;
+      font-weight: 650;
+    }
+    .trust > p {
+      max-width: 38em;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: .95rem;
+      text-align: center;
+    }
 
     /* Specs grid */
     .specs-grid {
@@ -464,11 +505,11 @@
     <section class="block overview" aria-labelledby="overview-h">
       <h2 id="overview-h">About this truck</h2>
       <div class="about-copy">
-      <p>Clean 2018 Tacoma TRD Off-Road Double Cab in Cement with the Black Package. Rear-wheel-drive 4x2 with the 3.5L V6 (~278 hp) and 6-speed automatic — 165,000 miles.</p>
-      <p>This is the TRD Off-Road setup buyers look for: Bilstein shocks, an electronic locking rear differential, and all-terrain tires on TRD wheels. Toyota Safety Sense P is on board (pre-collision with pedestrian detection, lane departure alert, dynamic radar cruise, and automatic high beams). Note: this is a <strong>4x2</strong> — it does not include Crawl Control or Multi-Terrain Select.</p>
-      <p>Inside: black leather and a sunroof. Outside: Black Package accents, fog lights, chrome side steps, and a lined short bed. Factory tow rating is about 6,400 lb. Short-bed Double Cab on a Toyota of El Cajon dealer frame.</p>
-      <p>Well cared for with no major body damage in the photos. Solid daily driver and lifestyle truck.</p>
-          </div>
+        <p>Clean 2018 Tacoma TRD Off-Road Double Cab in Cement with the Black Package. Rear-wheel-drive 4x2 with the 3.5L V6 (~278 hp) and 6-speed automatic — 165,000 miles.</p>
+        <p>This is the TRD Off-Road setup buyers look for: Bilstein shocks, an electronic locking rear differential, and all-terrain tires on TRD wheels. Toyota Safety Sense P is on board (pre-collision with pedestrian detection, lane departure alert, dynamic radar cruise, and automatic high beams). Note: this is a <strong>4x2</strong> — it does not include Crawl Control or Multi-Terrain Select.</p>
+        <p>Inside: black leather and a sunroof. Outside: Black Package accents, fog lights, chrome side steps, and a lined short bed. Factory tow rating is about 6,400 lb. Short-bed Double Cab on a Toyota of El Cajon dealer frame.</p>
+        <p>Well cared for with no major body damage in the photos. Solid daily driver and lifestyle truck.</p>
+      </div>
     </section>
 
     <!-- Specs -->
@@ -507,6 +548,31 @@
         <li>Fog lights</li>
         <li>Black Package exterior accents</li>
       </ul>
+    </section>
+
+
+    <!-- Condition & transparency — CARFAX-inspired honesty; no invented report data -->
+    <section class="block trust" aria-labelledby="trust-h">
+      <h2 id="trust-h">Condition &amp; transparency</h2>
+      <div class="trust-grid">
+        <div class="trust-item">
+          <strong>Mileage</strong>
+          165,000 miles as stated on this listing
+        </div>
+        <div class="trust-item">
+          <strong>Drivetrain</strong>
+          4x2 (RWD) — not 4x4; no Crawl Control / Multi-Terrain Select
+        </div>
+        <div class="trust-item">
+          <strong>Photos</strong>
+          31 unique photos of this truck — exterior, interior, and details
+        </div>
+        <div class="trust-item">
+          <strong>Sale type</strong>
+          Private sale · San Diego / El Cajon area
+        </div>
+      </div>
+      <p>No vehicle history report is attached to this page. Serious buyers are welcome to obtain an independent history report and to inspect the truck in person before purchase. Schedule a viewing to walk the truck and verify condition yourself.</p>
     </section>
 
     <!-- Full gallery of remaining photos -->
