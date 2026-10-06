@@ -8,358 +8,236 @@
   <meta property="og:title" content="2018 Toyota Tacoma TRD Off-Road — Cement · $21,500">
   <meta property="og:description" content="TRD Off-Road Double Cab, Black Package, 165k miles. Bilstein shocks, locking rear diff, leather, sunroof. San Diego / El Cajon area.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="photos/tacoma-01.jpg">
+  <meta property="og:image" content="photos/tacoma-16.jpg">
   <style>
     :root {
-      --text: #1a1a1a;
-      --muted: #5c5c5c;
-      --line: #e6e6e6;
-      --bg: #ffffff;
+      --text: #1c1c1c;
+      --muted: #666;
+      --line: #e8e8e8;
+      --bg: #fafafa;
+      --card: #fff;
       --accent: #c45c26;
-      --max: 720px;
-      --wide: 960px;
+      --max: 680px;
+      --wide: 900px;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: var(--text);
       background: var(--bg);
-      line-height: 1.55;
+      line-height: 1.6;
       font-size: 1.05rem;
+      text-align: center;
       -webkit-font-smoothing: antialiased;
     }
-
     img { max-width: 100%; display: block; }
-
     a { color: var(--accent); }
+    .wrap { width: min(100% - 2rem, var(--max)); margin-inline: auto; }
+    .wrap-wide { width: min(100% - 2rem, var(--wide)); margin-inline: auto; }
 
-    .wrap {
-      width: min(100% - 2rem, var(--max));
-      margin-inline: auto;
+    header.hero {
+      background: var(--card);
+      padding: 2rem 0 2.5rem;
+      border-bottom: 1px solid var(--line);
     }
-
-    .wrap-wide {
-      width: min(100% - 2rem, var(--wide));
-      margin-inline: auto;
-    }
-
-    /* Hero */
-    .hero {
-      padding: 2.5rem 0 0;
-    }
-
     .hero-photo {
-      border-radius: 6px;
+      width: min(100% - 2rem, var(--wide));
+      margin: 0 auto 1.75rem;
+      border-radius: 10px;
       overflow: hidden;
-      background: #f3f3f3;
+      background: #eee;
       cursor: pointer;
+      box-shadow: 0 8px 28px rgba(0,0,0,.08);
     }
-
     .hero-photo img {
       width: 100%;
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 16 / 10;
       object-fit: cover;
+      object-position: center;
     }
-
-    .hero-meta {
-      padding: 1.75rem 0 0.5rem;
-    }
-
     .price {
-      font-size: 1.75rem;
-      font-weight: 650;
-      letter-spacing: -0.02em;
+      font-size: clamp(2rem, 5vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
       color: var(--accent);
+      margin-bottom: .35rem;
     }
-
     h1 {
-      font-size: clamp(1.35rem, 3.5vw, 1.7rem);
+      font-size: clamp(1.25rem, 3.2vw, 1.65rem);
       font-weight: 650;
       letter-spacing: -0.02em;
-      line-height: 1.25;
-      margin-top: 0.35rem;
+      line-height: 1.3;
+      margin-bottom: .5rem;
     }
-
-    .subhead {
+    .sub {
       color: var(--muted);
-      margin-top: 0.5rem;
-      font-size: 0.98rem;
+      font-size: .98rem;
     }
 
-    /* Specs */
-    .specs {
-      margin: 2rem 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .specs dt,
-    .specs dd {
-      padding: 0.7rem 0;
-      border-bottom: 1px solid var(--line);
-      font-size: 0.95rem;
-    }
-
-    .specs dt {
-      color: var(--muted);
-      font-weight: 500;
-      padding-right: 0.75rem;
-    }
-
-    .specs dd {
-      font-weight: 550;
-      text-align: right;
-    }
-
-    .specs dt:nth-last-of-type(-n+1),
-    .specs dd:nth-last-of-type(-n+1) {
-      border-bottom: none;
-    }
-
-    /* Description */
-    .desc {
-      margin: 2rem 0 2.5rem;
-    }
-
-    .desc h2,
-    .features h2,
-    .gallery h2,
-    .contact h2 {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
+    section { padding: 2.25rem 0; }
+    section + section { border-top: 1px solid var(--line); }
+    h2 {
+      font-size: .8rem;
+      font-weight: 650;
+      letter-spacing: .12em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 0.85rem;
+      margin-bottom: 1.1rem;
     }
-
-    .desc p {
-      margin-bottom: 0.9rem;
-      color: #2a2a2a;
+    .about p {
+      margin: 0 auto 1rem;
+      max-width: 36em;
     }
+    .about p:last-child { margin-bottom: 0; }
 
-    .desc p:last-child { margin-bottom: 0; }
-
-    /* Features */
-    .features {
-      margin-bottom: 2.75rem;
+    .specs {
+      display: grid;
+      gap: .65rem;
+      max-width: 28rem;
+      margin: 0 auto;
+      text-align: left;
     }
+    .specs div {
+      display: grid;
+      grid-template-columns: 8.5rem 1fr;
+      gap: .75rem;
+      padding: .7rem .9rem;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-size: .95rem;
+    }
+    .specs .label { color: var(--muted); font-size: .85rem; }
+    .specs .value { font-weight: 550; }
 
-    .features ul {
+    .highlights {
       list-style: none;
+      max-width: 28rem;
+      margin: 0 auto;
+      text-align: left;
     }
-
-    .features li {
-      padding: 0.55rem 0;
-      border-bottom: 1px solid var(--line);
-      font-size: 0.98rem;
-      padding-left: 1.1rem;
+    .highlights li {
       position: relative;
+      padding: .55rem 0 .55rem 1.4rem;
+      border-bottom: 1px solid var(--line);
     }
-
-    .features li::before {
+    .highlights li:last-child { border-bottom: 0; }
+    .highlights li::before {
       content: "";
       position: absolute;
       left: 0;
-      top: 1.05rem;
-      width: 5px;
-      height: 5px;
+      top: 1rem;
+      width: .55rem;
+      height: .55rem;
       border-radius: 50%;
       background: var(--accent);
     }
 
-    .features li:last-child { border-bottom: none; }
-
-    /* Gallery */
-    .gallery {
-      margin-bottom: 3rem;
-    }
-
-    .gallery .wrap-wide { width: min(100% - 2rem, var(--wide)); }
-
+    .gallery { background: var(--card); }
     .grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.5rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .55rem;
     }
-
-    @media (min-width: 640px) {
-      .grid { grid-template-columns: repeat(3, 1fr); gap: 0.65rem; }
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .specs div { grid-template-columns: 1fr; gap: .15rem; text-align: center; }
+      .highlights { text-align: center; }
+      .highlights li { padding-left: 0; }
+      .highlights li::before { display: none; }
     }
-
     .grid button {
-      border: none;
-      background: #f3f3f3;
+      border: 0;
       padding: 0;
-      border-radius: 4px;
+      background: #eee;
+      border-radius: 6px;
       overflow: hidden;
       cursor: pointer;
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 1;
     }
-
-    .grid button img {
+    .grid img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .grid button:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px;
-    }
-
-    /* Contact */
-    .contact {
-      margin-bottom: 3.5rem;
-      padding: 1.75rem 1.35rem;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-    }
-
-    .contact p {
-      color: var(--muted);
-      margin-bottom: 1.1rem;
-      font-size: 0.98rem;
-    }
-
-    .contact-row {
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-    }
-
-    .contact-row a,
-    .contact-row span {
-      display: block;
-      font-weight: 550;
-      font-size: 1.05rem;
-      text-decoration: none;
-      color: var(--text);
-    }
-
-    .contact-row a:hover { color: var(--accent); }
-
-    .placeholder {
-      color: var(--accent);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 0.95rem;
-      font-weight: 500;
-    }
-
-    .label {
-      display: block;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--muted);
-      font-weight: 600;
-      margin-bottom: 0.15rem;
-    }
+    .contact p { max-width: 28em; margin: 0 auto 1rem; color: var(--muted); }
+    .seller { font-weight: 600; color: var(--text); }
 
     footer {
-      border-top: 1px solid var(--line);
       padding: 1.5rem 0 2.5rem;
       color: var(--muted);
-      font-size: 0.85rem;
-      text-align: center;
+      font-size: .85rem;
+      border-top: 1px solid var(--line);
     }
 
-    /* Lightbox — minimal */
     .lb {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.9);
-      z-index: 100;
+      background: rgba(0,0,0,.92);
+      z-index: 50;
       align-items: center;
       justify-content: center;
       padding: 1rem;
     }
-
     .lb.open { display: flex; }
-
-    .lb img {
-      max-height: 90vh;
-      max-width: 94vw;
-      object-fit: contain;
-    }
-
-    .lb-close,
-    .lb-prev,
-    .lb-next {
+    .lb img { max-height: 90vh; max-width: 94vw; border-radius: 4px; }
+    .lb-close, .lb-prev, .lb-next {
       position: absolute;
       background: transparent;
-      border: none;
+      border: 0;
       color: #fff;
-      font-size: 1.75rem;
+      font-size: 2rem;
       cursor: pointer;
-      padding: 0.5rem 0.75rem;
       line-height: 1;
-      opacity: 0.85;
+      padding: .5rem;
     }
-
-    .lb-close { top: 0.75rem; right: 0.75rem; }
-    .lb-prev { left: 0.5rem; top: 50%; transform: translateY(-50%); }
-    .lb-next { right: 0.5rem; top: 50%; transform: translateY(-50%); }
-
-    .lb-close:hover,
-    .lb-prev:hover,
-    .lb-next:hover { opacity: 1; }
+    .lb-close { top: .75rem; right: 1rem; }
+    .lb-prev { left: .5rem; }
+    .lb-next { right: .5rem; }
   </style>
 </head>
 <body>
-
   <header class="hero">
+    <div class="hero-photo" id="heroOpen" role="button" tabindex="0" aria-label="Open hero photo">
+      <img src="photos/tacoma-16.jpg" alt="2018 Toyota Tacoma TRD Off-Road in Cement — side profile" width="1600" height="1200">
+    </div>
     <div class="wrap">
-      <div class="hero-photo" id="heroOpen" role="button" tabindex="0" aria-label="View main photo larger">
-        <img src="photos/tacoma-01.jpg" alt="2018 Toyota Tacoma TRD Off-Road in Cement — front three-quarter view" width="1600" height="1200">
-      </div>
-      <div class="hero-meta">
-        <div class="price">$21,500</div>
-        <h1>2018 Toyota Tacoma TRD Off-Road Double Cab</h1>
-        <p class="subhead">Cement · Black Package · 165,000 miles · 4x2 · San Diego / El Cajon</p>
-      </div>
+      <div class="price">$21,500</div>
+      <h1>2018 Toyota Tacoma TRD Off-Road Double Cab</h1>
+      <p class="sub">Cement · Black Package · 165,000 miles · San Diego / El Cajon</p>
     </div>
   </header>
 
   <main>
-    <section class="wrap" aria-label="Specifications">
-      <dl class="specs">
-        <dt>Year / trim</dt>
-        <dd>2018 TRD Off-Road</dd>
-        <dt>Drivetrain</dt>
-        <dd>4x2 · 3.5L V6 · 6-speed auto</dd>
-        <dt>Body</dt>
-        <dd>Double Cab · short bed</dd>
-        <dt>Color</dt>
-        <dd>Cement · Black Package</dd>
-        <dt>Mileage</dt>
-        <dd>165,000</dd>
-        <dt>Location</dt>
-        <dd>San Diego / El Cajon, CA</dd>
-      </dl>
+    <section class="wrap about" aria-labelledby="about-h">
+      <h2 id="about-h">About this truck</h2>
+      <p>Clean 2018 Tacoma TRD Off-Road Double Cab in Cement with the Black Package. Rear-wheel-drive 4x2 with the 3.5L V6 and 6-speed automatic.</p>
+      <p>TRD Off-Road setup with Bilstein shocks, an electronic locking rear differential, and all-terrain tires. Toyota Safety Sense P is on board. Black leather, sunroof, lined bed, and side steps.</p>
+      <p>Well cared for with no major body damage in the photos. Solid daily driver and lifestyle truck.</p>
     </section>
 
-    <section class="wrap desc">
-      <h2>About this truck</h2>
-      <p>Clean 2018 Tacoma TRD Off-Road Double Cab in Cement with the Black Package. Rear-wheel-drive 4x2 with the 3.5L V6 and 6-speed automatic — 165,000 miles.</p>
-      <p>TRD Off-Road setup buyers look for: Bilstein shocks, electronic locking rear differential, and all-terrain tires on TRD wheels. Toyota Safety Sense P is on board. Inside: black leather and a sunroof. Outside: Black Package accents, fog lights, chrome side steps, and a lined bed.</p>
-      <p>Well cared for with no major body damage in the photos. Solid daily driver and lifestyle truck. Local meetups in the San Diego / El Cajon area welcome.</p>
+    <section class="wrap" aria-labelledby="specs-h">
+      <h2 id="specs-h">Specs</h2>
+      <div class="specs">
+        <div><span class="label">Year / trim</span><span class="value">2018 TRD Off-Road</span></div>
+        <div><span class="label">Drivetrain</span><span class="value">4x2 · 3.5L V6 · 6-speed auto</span></div>
+        <div><span class="label">Body</span><span class="value">Double Cab · short bed</span></div>
+        <div><span class="label">Color</span><span class="value">Cement · Black Package</span></div>
+        <div><span class="label">Mileage</span><span class="value">165,000</span></div>
+        <div><span class="label">Location</span><span class="value">San Diego / El Cajon, CA</span></div>
+      </div>
     </section>
 
-    <section class="wrap features">
-      <h2>Highlights</h2>
-      <ul>
-        <li>Bilstein shocks &amp; electronic locking rear differential</li>
+    <section class="wrap" aria-labelledby="hl-h">
+      <h2 id="hl-h">Highlights</h2>
+      <ul class="highlights">
+        <li>Bilstein shocks &amp; locking rear differential</li>
         <li>All-terrain tires on TRD wheels</li>
-        <li>Toyota Safety Sense P (pre-collision, lane departure, radar cruise, auto high beams)</li>
+        <li>Toyota Safety Sense P</li>
         <li>Black leather interior &amp; sunroof</li>
-        <li>Bed liner, chrome side steps, fog lights</li>
+        <li>Bed liner, side steps, fog lights</li>
         <li>Cement exterior with Black Package</li>
       </ul>
     </section>
@@ -367,110 +245,14 @@
     <section class="gallery" aria-label="Photo gallery">
       <div class="wrap-wide">
         <h2>Photos</h2>
-        <div class="grid" id="gallery">
-          <button type="button" data-idx="0" aria-label="Open photo 1">
-            <img src="photos/tacoma-02.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 1" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="1" aria-label="Open photo 2">
-            <img src="photos/tacoma-03.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 2" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="2" aria-label="Open photo 3">
-            <img src="photos/tacoma-04.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 3" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="3" aria-label="Open photo 4">
-            <img src="photos/tacoma-05.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 4" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="4" aria-label="Open photo 5">
-            <img src="photos/tacoma-06.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 5" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="5" aria-label="Open photo 6">
-            <img src="photos/tacoma-07.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 6" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="6" aria-label="Open photo 7">
-            <img src="photos/tacoma-08.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 7" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="7" aria-label="Open photo 8">
-            <img src="photos/tacoma-09.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 8" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="8" aria-label="Open photo 9">
-            <img src="photos/tacoma-10.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 9" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="9" aria-label="Open photo 10">
-            <img src="photos/tacoma-11.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 10" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="10" aria-label="Open photo 11">
-            <img src="photos/tacoma-12.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 11" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="11" aria-label="Open photo 12">
-            <img src="photos/tacoma-13.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 12" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="12" aria-label="Open photo 13">
-            <img src="photos/tacoma-14.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 13" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="13" aria-label="Open photo 14">
-            <img src="photos/tacoma-15.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 14" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="14" aria-label="Open photo 15">
-            <img src="photos/tacoma-16.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 15" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="15" aria-label="Open photo 16">
-            <img src="photos/tacoma-17.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 16" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="16" aria-label="Open photo 17">
-            <img src="photos/tacoma-18.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 17" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="17" aria-label="Open photo 18">
-            <img src="photos/tacoma-19.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 18" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="18" aria-label="Open photo 19">
-            <img src="photos/tacoma-20.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 19" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="19" aria-label="Open photo 20">
-            <img src="photos/tacoma-21.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 20" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="20" aria-label="Open photo 21">
-            <img src="photos/tacoma-22.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 21" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="21" aria-label="Open photo 22">
-            <img src="photos/tacoma-23.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 22" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="22" aria-label="Open photo 23">
-            <img src="photos/tacoma-24.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 23" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="23" aria-label="Open photo 24">
-            <img src="photos/tacoma-25.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 24" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="24" aria-label="Open photo 25">
-            <img src="photos/tacoma-26.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 25" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="25" aria-label="Open photo 26">
-            <img src="photos/tacoma-27.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 26" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="26" aria-label="Open photo 27">
-            <img src="photos/tacoma-28.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 27" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="27" aria-label="Open photo 28">
-            <img src="photos/tacoma-29.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 28" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="28" aria-label="Open photo 29">
-            <img src="photos/tacoma-30.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 29" width="1600" height="1200" loading="lazy">
-          </button>
-          <button type="button" data-idx="29" aria-label="Open photo 30">
-            <img src="photos/tacoma-31.jpg" alt="2018 Toyota Tacoma TRD Off-Road — photo 30" width="1600" height="1200" loading="lazy">
-          </button>
-        </div>
+        <div class="grid" id="gallery"></div>
       </div>
     </section>
 
     <section class="wrap contact" id="contact">
       <h2>Contact</h2>
       <p>Serious inquiries welcome. Reach out through this listing to schedule a viewing in the San Diego / El Cajon area.</p>
-      <div class="contact-row">
-        <div>
-          <span class="label">Seller</span>
-          <span>Tristan Olson</span>
-        </div>
-      </div>
+      <p class="seller">Tristan Olson</p>
     </section>
   </main>
 
@@ -487,20 +269,30 @@
 
   <script>
     (function () {
-      var photos = [{ src: "photos/tacoma-01.jpg", alt: "2018 Toyota Tacoma TRD Off-Road — hero" }];
-      for (var i = 2; i <= 31; i++) {
+      // Hero is tacoma-16; gallery = all other unique photos (30)
+      var all = [];
+      for (var i = 1; i <= 31; i++) {
         var n = (i < 10 ? "0" : "") + i;
-        photos.push({
-          src: "photos/tacoma-" + n + ".jpg",
-          alt: "2018 Toyota Tacoma TRD Off-Road — photo " + (i - 1)
-        });
+        all.push({ num: i, src: "photos/tacoma-" + n + ".jpg", alt: "2018 Toyota Tacoma TRD Off-Road — photo " + i });
       }
+      var heroSrc = "photos/tacoma-16.jpg";
+      var photos = all.filter(function (p) { return p.src !== heroSrc; });
+      photos.unshift(all.find(function (p) { return p.src === heroSrc; }));
 
       var gallery = document.getElementById("gallery");
-      var btns = gallery.querySelectorAll("button");
-      btns.forEach(function (btn) {
-        var idx = parseInt(btn.getAttribute("data-idx"), 10) + 1; // gallery starts at photos[1]
-        btn.addEventListener("click", function () { openLb(idx); });
+      photos.slice(1).forEach(function (p, idx) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.setAttribute("aria-label", "Open photo " + (idx + 1));
+        var img = document.createElement("img");
+        img.src = p.src;
+        img.alt = p.alt;
+        img.loading = "lazy";
+        img.width = 800;
+        img.height = 800;
+        btn.appendChild(img);
+        btn.addEventListener("click", function () { openLb(idx + 1); });
+        gallery.appendChild(btn);
       });
 
       var lb = document.getElementById("lightbox");
@@ -514,13 +306,11 @@
         lb.classList.add("open");
         document.body.style.overflow = "hidden";
       }
-
       function closeLb() {
         lb.classList.remove("open");
         document.body.style.overflow = "";
         lbImg.src = "";
       }
-
       function step(d) {
         cur = (cur + d + photos.length) % photos.length;
         lbImg.src = photos[cur].src;
